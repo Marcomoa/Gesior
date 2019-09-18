@@ -1,0 +1,8 @@
+serverStatus_checkInterval = "8"
+	serverStatus_lastCheck = "1549835171"
+	serverStatus_online = "0"
+	serverStatus_players = "0"
+	serverStatus_playersMax = "0"
+	serverStatus_uptime = "0h 3m"
+	serverStatus_monsters = "700"
+	

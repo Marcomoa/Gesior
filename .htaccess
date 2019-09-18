@@ -1,0 +1,25 @@
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+AddType application/x-font-woff .woff
+
+Header set X-Content-Type-Options "nosniff"
+Header set X-FRAME-OPTIONS "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+Header set Cache-Control "public, max-age=60"
+
+# Security to css and js files
+<FilesMatch "\.(html|htm|js|css|png|jpeg|jpg|gif|pdf|zip)$">
+    FileETag None
+    <ifModule mod_headers.c>
+		Header set Cache-Control "public, max-age=1000"
+    </ifModule>
+</FilesMatch>
+
+RewriteEngine on
+Options All -Indexes
+
+#Error Document
+ErrorDocument 403 http://127.0.0.1/?subtopic=error
+ErrorDocument 404 http://127.0.0.1/?subtopic=error
+ErrorDocument 500 http://127.0.0.1/?subtopic=error
