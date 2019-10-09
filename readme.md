@@ -51,3 +51,9 @@ or
 ```bash
 sudo service apache2 restart
 ```
+
+### FOR UBUNTU ACCOUNTING PROBLEMS
+If you have trouble registering using ubuntu or any other version of php where the site claims to have registered but was not done, simply run the following command on your database:
+```bash
+SET GLOBAL sql_mode = '';
+```
