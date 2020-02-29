@@ -10,14 +10,16 @@ function sendError($msg){
 	$ret["errorMessage"] = $msg;
 	die(json_encode($ret));
 }
+
 $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
+$playersonline = $SQL->query("SELECT * FROM `players_online` WHERE 1")->fetchAll();
 
 switch ($action) {
-	case 'cacheinfo':
+		case 'cacheinfo':
 		die(json_encode([
-			'playersonline' => $status['players'],
+			'playersonline' => (count($playersonline)),
 			'twitchstreams' => 0,
 			'twitchviewer' => 0,
 			'gamingyoutubestreams' => 0,
@@ -30,13 +32,14 @@ switch ($action) {
 			'eventlist' => []
 		]));
 	break;
+
 	case 'boostedcreature':
 		die(json_encode([
 			'boostedcreature' => false,
 		]));
 	break;
-	case 'login':
 
+	case 'login':
 		$port = Website::getServerConfig()->getValue('gameProtocolPort');
 
 		$world = [
@@ -54,6 +57,7 @@ switch ($action) {
 			'restrictedstore' => false,
 			'currenttournamentphase' => 2
 		];
+
 		$characters = [];
 		$account = null;
 
@@ -65,10 +69,12 @@ switch ($action) {
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
 		}
+
         $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
 		foreach ($players as $player) {
 			$characters[] = create_char($player);
 		}
+
 		$worlds = [$world];
 		$playdata = compact('worlds', 'characters');
 		$session = [
@@ -92,6 +98,7 @@ switch ($action) {
 		sendError("Unrecognized event {$action}.");
 	break;
 }
+
 function create_char($player) {
 	return [
 		'worldid' => 0,
