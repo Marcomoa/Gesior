@@ -64,7 +64,12 @@ switch ($action) {
 		$columns = 'name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, deleted, lastlogin';
 
 		$account = new Account();
-		$account->loadByName($result->accountname);
+		$isLoginEmail = isset($result->email);
+		if ($isLoginEmail) {
+			$account->loadByEmail($result->email);
+		} else {
+			$account->loadByName($result->accountname);
+		}
 		$current_password = Website::encryptPassword($result->password);
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
@@ -78,7 +83,7 @@ switch ($action) {
 		$worlds = [$world];
 		$playdata = compact('worlds', 'characters');
 		$session = [
-			'sessionkey' => "$result->accountname\n$result->password",
+			'sessionkey' => "$account->name\n$result->password",
 			'lastlogintime' => (!$account) ? 0 : $account->getLastLogin(),
 			'ispremium' => (!$account) ? true : $account->isPremium(),
 			'premiumuntil' => (!$account) ? 0 : (time() + ($account->getPremDays() * 86400)),
