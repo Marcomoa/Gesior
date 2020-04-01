@@ -14,12 +14,12 @@ function sendError($msg){
 $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
-$playersonline = $SQL->query("SELECT * FROM `players_online` WHERE 1")->fetchAll();
+$playersonline = $SQL->query("SELECT COUNT(id) FROM `players_online`")->fetchColumn();
 
 switch ($action) {
 		case 'cacheinfo':
 		die(json_encode([
-			'playersonline' => (count($playersonline)),
+			'playersonline' => $playersonline,
 			'twitchstreams' => 0,
 			'twitchviewer' => 0,
 			'gamingyoutubestreams' => 0,
