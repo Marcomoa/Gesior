@@ -74,6 +74,7 @@ switch ($action) {
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
 		}
+		$accountName = $account->getName();
 
         $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
 		foreach ($players as $player) {
@@ -83,7 +84,7 @@ switch ($action) {
 		$worlds = [$world];
 		$playdata = compact('worlds', 'characters');
 		$session = [
-			'sessionkey' => "$account->name\n$result->password",
+			'sessionkey' => "$accountName\n$result->password",
 			'lastlogintime' => (!$account) ? 0 : $account->getLastLogin(),
 			'ispremium' => (!$account) ? true : $account->isPremium(),
 			'premiumuntil' => (!$account) ? 0 : (time() + ($account->getPremDays() * 86400)),
