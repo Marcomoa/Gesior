@@ -4,9 +4,9 @@ header('Content-Type: application/json');
 if(!defined('INITIALIZED'))
     exit;
 
-function sendError($msg){
+function sendError($msg, $code = 3){
 	$ret = [];
-	$ret["errorCode"] = 3;
+	$ret["errorCode"] = $code;
 	$ret["errorMessage"] = $msg;
 	die(json_encode($ret));
 }
@@ -14,13 +14,13 @@ function sendError($msg){
 $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
-$stmt = $SQL->prepare("SELECT count(*) as total from `players_online`");
-$stmt->execute([]);
-$playersonline = intval($stmt->fetch()["total"]);
 
 
 switch ($action) {
-		case 'cacheinfo':
+	case 'cacheinfo':
+		$stmt = $SQL->prepare("SELECT count(*) as total from `players_online`");
+		$stmt->execute([]);
+		$playersonline = intval($stmt->fetch()["total"]);
 		die(json_encode([
 			'playersonline' => $playersonline,
 			'twitchstreams' => 0,
@@ -43,14 +43,18 @@ switch ($action) {
 	break;
 
 	case 'login':
+		// sendError("Two-factor token required for authentication.", 6);
+		
 		$port = Website::getServerConfig()->getValue('gameProtocolPort');
-
+		$ip = Website::getServerConfig()->getValue('ip');
 		$world = [
 			'id' => 0,
 			'name' => Website::getServerConfig()->getValue('serverName'),
-			'externaladdressprotected' => Website::getServerConfig()->getValue('ip'),
+			'externaladdress' => $ip,
+			'externalport' => $port,
+			'externaladdressprotected' => $ip,
 			'externalportprotected' => $port,
-			'externaladdressunprotected' => Website::getServerConfig()->getValue('ip'),
+			'externaladdressunprotected' => $ip,
 			'externalportunprotected' => $port,
 			'previewstate' => 0,
 			'location' => 'BRA',
@@ -76,7 +80,10 @@ switch ($action) {
 		$current_password = Website::encryptPassword($result->password);
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
+		} else if($account->getSecret() != null && !isset($result->token)) {
+			sendError("Two-factor token required for authentication.", 6);
 		}
+
 		$accountName = $account->getName();
 
         $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
@@ -84,10 +91,16 @@ switch ($action) {
 			$characters[] = create_char($player);
 		}
 
+		$sessionKey = "$accountName\n$result->password";
+		if(isset($result->token)) {
+			$timestamp = time();
+			$sessionKey .= "\n$result->token\n$timestamp";
+		}
+
 		$worlds = [$world];
 		$playdata = compact('worlds', 'characters');
 		$session = [
-			'sessionkey' => "$accountName\n$result->password",
+			'sessionkey' => $sessionKey,
 			'lastlogintime' => (!$account) ? 0 : $account->getLastLogin(),
 			'ispremium' => (!$account) ? true : $account->isPremium(),
 			'premiumuntil' => (!$account) ? 0 : (time() + ($account->getPremDays() * 86400)),
@@ -101,6 +114,7 @@ switch ($action) {
 			'emailcoderequest' => false
 		];
 		die(json_encode(compact('session', 'playdata')));
+
 	break;
 
 	default:
