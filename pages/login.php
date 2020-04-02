@@ -14,7 +14,7 @@ function sendError($msg){
 $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
-$playersonline = $SQL->query("SELECT COUNT(id) FROM `players_online`")->fetchColumn();
+$playersonline = $SQL->query("SELECT COUNT(*) FROM `players_online`")->fetchColumn();
 
 switch ($action) {
 		case 'cacheinfo':
