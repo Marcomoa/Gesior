@@ -4,9 +4,9 @@ header('Content-Type: application/json');
 if(!defined('INITIALIZED'))
     exit;
 
-function sendError($msg){
+function sendError($msg, $code = 3){
 	$ret = [];
-	$ret["errorCode"] = 3;
+	$ret["errorCode"] = $code;
 	$ret["errorMessage"] = $msg;
 	die(json_encode($ret));
 }
@@ -14,12 +14,15 @@ function sendError($msg){
 $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
-$playersonline = $SQL->query("SELECT * FROM `players_online` WHERE 1")->fetchAll();
+
 
 switch ($action) {
-		case 'cacheinfo':
+	case 'cacheinfo':
+		$stmt = $SQL->prepare("SELECT count(*) as total from `players_online`");
+		$stmt->execute([]);
+		$playersonline = intval($stmt->fetch()["total"]);
 		die(json_encode([
-			'playersonline' => (count($playersonline)),
+			'playersonline' => $playersonline,
 			'twitchstreams' => 0,
 			'twitchviewer' => 0,
 			'gamingyoutubestreams' => 0,
@@ -40,14 +43,18 @@ switch ($action) {
 	break;
 
 	case 'login':
+		// sendError("Two-factor token required for authentication.", 6);
+		
 		$port = Website::getServerConfig()->getValue('gameProtocolPort');
-
+		$ip = Website::getServerConfig()->getValue('ip');
 		$world = [
 			'id' => 0,
 			'name' => Website::getServerConfig()->getValue('serverName'),
-			'externaladdressprotected' => Website::getServerConfig()->getValue('ip'),
+			'externaladdress' => $ip,
+			'externalport' => $port,
+			'externaladdressprotected' => $ip,
 			'externalportprotected' => $port,
-			'externaladdressunprotected' => Website::getServerConfig()->getValue('ip'),
+			'externaladdressunprotected' => $ip,
 			'externalportunprotected' => $port,
 			'previewstate' => 0,
 			'location' => 'BRA',
@@ -64,21 +71,36 @@ switch ($action) {
 		$columns = 'name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, deleted, lastlogin';
 
 		$account = new Account();
-		$account->loadByName($result->accountname);
+		$isLoginEmail = isset($result->email);
+		if ($isLoginEmail) {
+			$account->loadByEmail($result->email);
+		} else {
+			$account->loadByName($result->accountname);
+		}
 		$current_password = Website::encryptPassword($result->password);
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
+		} else if($account->getSecret() != null && !isset($result->token)) {
+			sendError("Two-factor token required for authentication.", 6);
 		}
+
+		$accountName = $account->getName();
 
         $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
 		foreach ($players as $player) {
 			$characters[] = create_char($player);
 		}
 
+		$sessionKey = "$accountName\n$result->password";
+		if(isset($result->token)) {
+			$timestamp = time();
+			$sessionKey .= "\n$result->token\n$timestamp";
+		}
+
 		$worlds = [$world];
 		$playdata = compact('worlds', 'characters');
 		$session = [
-			'sessionkey' => "$result->accountname\n$result->password",
+			'sessionkey' => $sessionKey,
 			'lastlogintime' => (!$account) ? 0 : $account->getLastLogin(),
 			'ispremium' => (!$account) ? true : $account->isPremium(),
 			'premiumuntil' => (!$account) ? 0 : (time() + ($account->getPremDays() * 86400)),
@@ -92,6 +114,7 @@ switch ($action) {
 			'emailcoderequest' => false
 		];
 		die(json_encode(compact('session', 'playdata')));
+
 	break;
 
 	default:
