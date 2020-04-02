@@ -8,8 +8,8 @@ class Account extends ObjectData
 	const LOADTYPE_NAME = 'name';
 	const LOADTYPE_MAIL = 'email';
 	public static $table = 'accounts';
-	public $data = array('name' => null, 'password' => null, 'premdays' => 0, 'coins' => 0, 'lastday' => 0, 'email' => null, 'key' => null, 'create_ip' => null, 'creation' => null, 'page_access' => 1, 'location' => null, 'rlname' => null, 'birth_date' => null, 'gender' => null, 'email_new' => null, 'email_new_time' => 0, 'email_code' => null, 'next_email' => 0, 'last_post' => 0, 'flag' => null, 'vote' => 0, 'loyalty_points' => 0, 'guild_points' => 0, 'vip_time' => 0, 'authToken' => '0');
-	public static $fields = array('id', 'name', 'password', 'premdays', 'coins', 'lastday', 'email', 'key', 'create_ip', 'creation', 'page_access', 'location', 'rlname','birth_date', 'gender', 'email_new', 'email_new_time', 'email_code', 'next_email', 'last_post', 'flag', 'vote', 'loyalty_points', 'guild_points', 'vip_time');
+	public $data = array('name' => null, 'password' => null, 'premdays' => 0, 'coins' => 0, 'lastday' => 0, 'email' => null, 'key' => null, 'create_ip' => null, 'creation' => null, 'page_access' => 1, 'location' => null, 'rlname' => null, 'birth_date' => null, 'gender' => null, 'email_new' => null, 'email_new_time' => 0, 'email_code' => null, 'next_email' => 0, 'last_post' => 0, 'flag' => null, 'vote' => 0, 'loyalty_points' => 0, 'guild_points' => 0, 'authToken' => '0');
+	public static $fields = array('id', 'name', 'password', 'premdays', 'coins', 'lastday', 'email', 'key', 'create_ip', 'creation', 'page_access', 'location', 'rlname','birth_date', 'gender', 'email_new', 'email_new_time', 'email_code', 'next_email', 'last_post', 'flag', 'vote', 'loyalty_points', 'guild_points');
 	public $players;
 	public $playerRanks;
 	public $guildAccess;
