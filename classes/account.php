@@ -184,4 +184,3 @@ class Account extends ObjectData
 	public function isPremium(){return ($this->getPremDays() > 0);}
 	public function getLastLogin(){return $this->getLastDay();}
 }
-
