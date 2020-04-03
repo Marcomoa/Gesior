@@ -208,17 +208,17 @@ ALTER TABLE `accounts`
     ADD `create_date` int(11) NOT NULL DEFAULT '0',
     ADD `last_post` int(11) NOT NULL DEFAULT '0',
     ADD `flag` varchar(80) NOT NULL DEFAULT '',
-	ADD `vote` int(11) NOT NULL DEFAULT '0',
+    ADD `vote` int(11) NOT NULL DEFAULT '0',
     ADD `loyalty_points` bigint(20) NOT NULL DEFAULT '0',
     ADD `guild_points` int(11) NOT NULL DEFAULT '0',
     ADD `authToken` varchar(100) NOT NULL;
 
 ALTER TABLE `guild_invites`
-	ADD `date` int(11) NOT NULL;
+    ADD `date` int(11) NOT NULL;
 
 ALTER TABLE `players`
-	ADD `signature` varchar(255) NOT NULL,
-	ADD `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
+    ADD `signature` varchar(255) NOT NULL,
+    ADD `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
     ADD `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
     ADD `deleted` tinyint(1) NOT NULL DEFAULT '0',
     ADD `description` varchar(255) NOT NULL DEFAULT '',
