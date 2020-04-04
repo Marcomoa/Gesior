@@ -36,11 +36,14 @@ switch ($action) {
 		]));
 	break;
 
-	case 'boostedcreature':
-		die(json_encode([
-			'boostedcreature' => false,
-		]));
-	break;
+    	case "boostedcreature":
+		$result = $SQL->prepare("SELECT `value` FROM `global_storage` WHERE `key` = '56541'");
+		$result->execute([]);
+		$raceid = $result->fetchAll();
+       			die(json_encode([ $boostedcreature["boostedcreature"] = true;
+        			$boostedcreature["raceid"] = (int)$raceid[0]['value'];
+        		]));
+        break;
 
 	case 'login':
 		// sendError("Two-factor token required for authentication.", 6);
