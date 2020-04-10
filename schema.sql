@@ -216,8 +216,7 @@ ALTER TABLE `accounts`
 ALTER TABLE `guilds`
     ADD `description` text NOT NULL,
     ADD `create_ip` int(11) NOT NULL DEFAULT '0',
-    ADD `guild_logo` mediumblob,
-    ADD `create_ip` int(11) NOT NULL DEFAULT '0';
+    ADD `guild_logo` mediumblob;
 
 ALTER TABLE `guild_invites`
     ADD `date` int(11) NOT NULL;
