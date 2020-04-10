@@ -213,6 +213,12 @@ ALTER TABLE `accounts`
     ADD `guild_points` int(11) NOT NULL DEFAULT '0',
     ADD `authToken` varchar(100) NOT NULL;
 
+ALTER TABLE `guilds`
+    ADD `description` text NOT NULL,
+    ADD `create_ip` int(11) NOT NULL DEFAULT '0',
+    ADD `guild_logo` mediumblob,
+    ADD `create_ip` int(11) NOT NULL DEFAULT '0';
+
 ALTER TABLE `guild_invites`
     ADD `date` int(11) NOT NULL;
 
@@ -247,7 +253,8 @@ INSERT INTO `z_shop_offer` (`id`, `category`, `coins`, `price`, `itemid`, `mount
 
 INSERT INTO `accounts`
 (`id`,  `name`, `password`,                           `type`) VALUES
-(1,     '1',  '356a192b7913b04c54574d18c28d46e6395428ab',  1);
+(1,     '1',  '356a192b7913b04c54574d18c28d46e6395428ab',  5);
 
-INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `onlinetime`, `deletion`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `signature`, `marriage_spouse`, `marriage_status`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `cast`, `hide_skills`, `hide_set`, `former`, `loyalty_ranking`) VALUES
-(1, 'Rook Sample', 1, 1, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 2, 0, 0, 0, '', 400, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, '', -1, 0, 0, '', '', 0, 0, 0, 0, NULL, NULL, '-', 0);
+INSERT INTO `players`
+(`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
+(1,    'Community Manager',       3,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
