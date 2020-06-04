@@ -202,48 +202,49 @@ elseif ($page == 'menu') {
 		echo 'Installer try to add new tables and columns to database.<br>';
 		$columns = array();
 		// Accounts:
-		$columns[] = array('accounts', 'key', 'VARCHAR', '20', '0');
-		$columns[] = array('accounts', 'create_ip', 'INT', '11', '0');
-		$columns[] = array('accounts', 'page_access', 'INT', '11', '0');
-		$columns[] = array('accounts', 'location', 'VARCHAR', '255', '');
-		$columns[] = array('accounts', 'rlname', 'VARCHAR', '255', '');
-		//Missing: gender
-		//Missing: guild_points_stats
-		$columns[] = array('accounts', 'email_new', 'VARCHAR', '255', '');
-		$columns[] = array('accounts', 'email_new_time', 'INT', '11', '0');
-		$columns[] = array('accounts', 'email_code', 'VARCHAR', '255', '');
-		$columns[] = array('accounts', 'next_email', 'INT', '11', '0');
+		$columns[] = array('accounts', 'authToken', 'VARCHAR', '100', '');
+		$columns[] = array('accounts', 'coins', 'INT', '12', '0');
 		$columns[] = array('accounts', 'create_date', 'INT', '11', '0');
-		$columns[] = array('accounts', 'last_post', 'INT', '11', '0');
+		$columns[] = array('accounts', 'create_ip', 'INT', '11', '0');
+		$columns[] = array('accounts', 'email_code', 'VARCHAR', '255', '');
+		$columns[] = array('accounts', 'email_new_time', 'INT', '11', '0');
+		$columns[] = array('accounts', 'email_new', 'VARCHAR', '255', '');
 		$columns[] = array('accounts', 'flag', 'VARCHAR', '80', '');
-		//Missing: vote
-		//Missing: loyalty_points
-		//Missing: guild_points
-		//Missing: authToken
+		$columns[] = array('accounts', 'gender', 'VARCHAR', '20', '0');
+		$columns[] = array('accounts', 'guild_points_stats', 'INT', '11', '0');
+		$columns[] = array('accounts', 'guild_points', 'INT', '11', '0');
+		$columns[] = array('accounts', 'key', 'VARCHAR', '20', '0');
+		$columns[] = array('accounts', 'last_post', 'INT', '11', '0');
+		$columns[] = array('accounts', 'location', 'VARCHAR', '255', '');
+		$columns[] = array('accounts', 'loyalty_points', 'BIGINT', '20', '0');
+		$columns[] = array('accounts', 'next_email', 'INT', '11', '0');
+		$columns[] = array('accounts', 'page_access', 'INT', '11', '0');
+		$columns[] = array('accounts', 'rlname', 'VARCHAR', '255', '');
+		$columns[] = array('accounts', 'vote', 'INT', '11', '0');
 
 		//Guilds:
-		$columns[] = array('guilds', 'description', 'TEXT', '', NULL);
 		$columns[] = array('guilds', 'create_ip', 'INT', '11', '0');
+		$columns[] = array('guilds', 'description', 'TEXT', '', NULL);
 		$columns[] = array('guilds', 'guild_logo', 'MEDIUMBLOB', '', NULL);
 
 		//Guilds Invites:
-		//Missing date
+		$columns[] = array('guild_invites', 'date', 'INT', '11', '');
 
 		//Players:
-		//Missing: signature
-		//Missing: marriage_spouse
-		//Missing: marriage_status
+		$columns[] = array('players', 'cast', 'TINYINT', '1', '0');
+		$columns[] = array('players', 'comment', 'TEXT', '', NULL);
+		$columns[] = array('players', 'create_date', 'INT', '11', '0');
+		$columns[] = array('players', 'create_ip', 'INT', '11', '0');
 		$columns[] = array('players', 'deleted', 'TINYINT', '1', '0');
 		$columns[] = array('players', 'description', 'VARCHAR', '255', '');
-		$columns[] = array('players', 'comment', 'TEXT', '', NULL);
-		$columns[] = array('players', 'create_ip', 'INT', '11', '0');
-		$columns[] = array('players', 'create_date', 'INT', '11', '0');
+		$columns[] = array('players', 'former', 'VARCHAR', '255', '-');
 		$columns[] = array('players', 'hide_char', 'INT', '11', '0');
-		//Missing: cast
-		//Missing: hide_skills
-		//Missing: hide_set
-		//Missing: former
-		//Missing: loyalty_ranking
+		$columns[] = array('players', 'hide_set', 'INT', '11', NULL);
+		$columns[] = array('players', 'hide_skills', 'INT', '11', NULL);
+		$columns[] = array('players', 'marriage_spouse', 'INT', '11', NULL);
+		$columns[] = array('players', 'marriage_status', 'BIGINT', '20', '0');
+		$columns[] = array('players', 'name_of_column', 'TINYINT', '1', '0');
+		$columns[] = array('players', 'signature', 'VARCHAR', '255', '');
 
 		$tables = array();
 		// mysql tables
