@@ -26,7 +26,7 @@ class Database_MySQL extends Database
 
 	public function fieldName($name)
 	{
-		if(strspn($name, "123456789_aAaQqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm") != strlen($name))
+		if(strspn($name, "1234567890_aAaQqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm") != strlen($name))
 			new Error_Critic('', 'Invalid field name format.');
 
 		return '`' . $name . '`';
@@ -34,7 +34,7 @@ class Database_MySQL extends Database
 
 	public function tableName($name)
 	{
-		if(strspn($name, "123456789_aAaQqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm") != strlen($name))
+		if(strspn($name, "1234567890_aAaQqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm") != strlen($name))
 			new Error_Critic('', 'Invalid table name format.');
 
 		return '`' . $name . '`';
