@@ -255,7 +255,7 @@ if ($page == '') {
 			`icon` varchar(50) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['pagseguro_transactions'] = " CREATE TABLE `pagseguro_transactions` (
+		$tables[Database::DB_MYSQL]['pagseguro_transactions'] = "CREATE TABLE IF NOT EXISTS `pagseguro_transactions` (
 			`transaction_code` varchar(36) NOT NULL,
 			`name` varchar(200) DEFAULT NULL,
 			`payment_method` varchar(50) NOT NULL,
@@ -265,14 +265,14 @@ if ($page == '') {
 			`payment_amount` float DEFAULT '0'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['player_former_names'] = " CREATE TABLE `player_former_names` (
+		$tables[Database::DB_MYSQL]['player_former_names'] = "CREATE TABLE IF NOT EXISTS `player_former_names` (
 			`id` int(11) NOT NULL ,
 			`player_id` int(11) NOT NULL,
 			`former_name` varchar(35) NOT NULL,
 			`date` int(11) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['tickets'] = " CREATE TABLE `tickets` (
+		$tables[Database::DB_MYSQL]['tickets'] = "CREATE TABLE IF NOT EXISTS `tickets` (
 			`ticket_id` int(11) NOT NULL ,
 			`ticket_subject` varchar(45) NOT NULL,
 			`ticket_author` varchar(255) NOT NULL,
@@ -286,7 +286,7 @@ if ($page == '') {
 			`ticket_description` text NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;";
 
-		$tables[Database::DB_MYSQL]['tickets_reply'] = " CREATE TABLE `tickets_reply` (
+		$tables[Database::DB_MYSQL]['tickets_reply'] = "CREATE TABLE IF NOT EXISTS `tickets_reply` (
 			`ticket_replyid` int(11) NOT NULL ,
 			`ticket_id` int(11) NOT NULL,
 			`reply_author` varchar(255) DEFAULT NULL,
@@ -294,7 +294,7 @@ if ($page == '') {
 			`reply_date` datetime DEFAULT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_forum'] = " CREATE TABLE `z_forum` (
+		$tables[Database::DB_MYSQL]['z_forum'] = "CREATE TABLE IF NOT EXISTS `z_forum` (
 			`id` int(11) NOT NULL ,
 			`first_post` int(11) NOT NULL DEFAULT '0',
 			`last_post` int(11) NOT NULL DEFAULT '0',
@@ -314,7 +314,7 @@ if ($page == '') {
 			`news_icon` varchar(50) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_ots_comunication'] = " CREATE TABLE `z_ots_comunication` (
+		$tables[Database::DB_MYSQL]['z_ots_comunication'] = "CREATE TABLE IF NOT EXISTS `z_ots_comunication` (
 			`id` int(11) NOT NULL ,
 			`name` varchar(255) NOT NULL,
 			`type` varchar(255) NOT NULL,
@@ -329,7 +329,7 @@ if ($page == '') {
 			`delete_it` int(2) NOT NULL DEFAULT '1'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_ots_guildcomunication'] = " CREATE TABLE `z_ots_guildcomunication` (
+		$tables[Database::DB_MYSQL]['z_ots_guildcomunication'] = "CREATE TABLE IF NOT EXISTS `z_ots_guildcomunication` (
 			`id` int(11) NOT NULL ,
 			`name` varchar(255) NOT NULL,
 			`type` varchar(255) NOT NULL,
@@ -344,7 +344,7 @@ if ($page == '') {
 			`delete_it` int(2) NOT NULL DEFAULT '1'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_polls'] = " CREATE TABLE `z_polls` (
+		$tables[Database::DB_MYSQL]['z_polls'] = "CREATE TABLE IF NOT EXISTS `z_polls` (
 			`id` int(11) NOT NULL ,
 			`question` varchar(255) NOT NULL,
 			`end` int(11) NOT NULL,
@@ -353,14 +353,14 @@ if ($page == '') {
 			`votes_all` int(11) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_polls_answers'] = " CREATE TABLE `z_polls_answers` (
+		$tables[Database::DB_MYSQL]['z_polls_answers'] = "CREATE TABLE IF NOT EXISTS `z_polls_answers` (
 			`poll_id` int(11) NOT NULL ,
 			`answer_id` int(11) NOT NULL,
 			`answer` varchar(255) NOT NULL,
 			`votes` int(11) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_category'] = " CREATE TABLE `z_shop_category` (
+		$tables[Database::DB_MYSQL]['z_shop_category'] = "CREATE TABLE IF NOT EXISTS `z_shop_category` (
 			`id` int(11) NOT NULL ,
 			`name` varchar(50) NOT NULL,
 			`desc` varchar(255) NOT NULL,
@@ -368,7 +368,7 @@ if ($page == '') {
 			`hide` int(11) NOT NULL DEFAULT '0'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_donates'] = " CREATE TABLE `z_shop_donates` (
+		$tables[Database::DB_MYSQL]['z_shop_donates'] = "CREATE TABLE IF NOT EXISTS `z_shop_donates` (
 			`id` int(11) NOT NULL ,
 			`date` int(11) NOT NULL,
 			`reference` varchar(50) NOT NULL,
@@ -379,7 +379,7 @@ if ($page == '') {
 			`status` varchar(20) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_donate_confirm'] = " CREATE TABLE `z_shop_donate_confirm` (
+		$tables[Database::DB_MYSQL]['z_shop_donate_confirm'] = "CREATE TABLE IF NOT EXISTS `z_shop_donate_confirm` (
 			`id` int(11) NOT NULL ,
 			`date` int(11) NOT NULL,
 			`account_name` varchar(50) NOT NULL,
@@ -387,7 +387,7 @@ if ($page == '') {
 			`msg` text NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_history_item'] = " CREATE TABLE `z_shop_history_item` (
+		$tables[Database::DB_MYSQL]['z_shop_history_item'] = "CREATE TABLE IF NOT EXISTS `z_shop_history_item` (
 			`id` int(11) NOT NULL ,
 			`to_name` varchar(255) NOT NULL DEFAULT '0',
 			`to_account` int(11) NOT NULL DEFAULT '0',
@@ -400,7 +400,7 @@ if ($page == '') {
 			`trans_real` int(11) NOT NULL DEFAULT '0'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_offer'] = " CREATE TABLE `z_shop_offer` (
+		$tables[Database::DB_MYSQL]['z_shop_offer'] = "CREATE TABLE IF NOT EXISTS `z_shop_offer` (
 			`id` int(11) NOT NULL ,
 			`category` int(11) NOT NULL,
 			`coins` int(11) NOT NULL DEFAULT '0',
@@ -417,7 +417,7 @@ if ($page == '') {
 			`hide` int(11) NOT NULL DEFAULT '0'
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$tables[Database::DB_MYSQL]['z_shop_payment'] = " CREATE TABLE `z_shop_payment` (
+		$tables[Database::DB_MYSQL]['z_shop_payment'] = "CREATE TABLE IF NOT EXISTS `z_shop_payment` (
 			`id` int(11) NOT NULL ,
 			`ref` varchar(10) NOT NULL,
 			`account_name` varchar(50) NOT NULL,
