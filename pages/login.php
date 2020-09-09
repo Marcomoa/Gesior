@@ -15,7 +15,6 @@ $request = file_get_contents('php://input');
 $result = json_decode($request);
 $action = isset($result->type) ? $result->type : '';
 
-
 switch ($action) {
 	case 'cacheinfo':
 		$stmt = $SQL->prepare("SELECT count(*) as total from `players_online`");
@@ -37,14 +36,17 @@ switch ($action) {
 	break;
 
 	case 'boostedcreature':
-		die(json_encode([
-			'boostedcreature' => false,
-		]));
+		$boostDB = $SQL->query("select * from " . $SQL->tableName('boosted_creature'))->fetchAll();
+		foreach ($boostDB as $Tableboost) {
+			die(json_encode([
+				'boostedcreature' => true,
+				'raceid' => intval($Tableboost['raceid'])
+			]));
+		}
 	break;
 
 	case 'login':
 		// sendError("Two-factor token required for authentication.", 6);
-		
 		$port = Website::getServerConfig()->getValue('gameProtocolPort');
 		$ip = Website::getServerConfig()->getValue('ip');
 		$world = [
@@ -67,9 +69,7 @@ switch ($action) {
 
 		$characters = [];
 		$account = null;
-
 		$columns = 'name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, deleted, lastlogin';
-
 		$account = new Account();
 		$isLoginEmail = isset($result->email);
 		if ($isLoginEmail) {
@@ -77,6 +77,7 @@ switch ($action) {
 		} else {
 			$account->loadByName($result->accountname);
 		}
+
 		$current_password = Website::encryptPassword($result->password);
 		if (!$account->isLoaded() || !$account->isValidPassword($result->password)) {
 			sendError('Account name or password is not correct.');
@@ -85,7 +86,6 @@ switch ($action) {
 		}
 
 		$accountName = $account->getName();
-
         $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
 		foreach ($players as $player) {
 			$characters[] = create_char($player);
