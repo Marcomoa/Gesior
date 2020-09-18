@@ -86,7 +86,7 @@ switch ($action) {
 		}
 
 		$accountName = $account->getName();
-        $players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
+		$players = $SQL->query("select {$columns} from players where account_id = " . $account->getId() . " order by name asc")->fetchAll();
 		foreach ($players as $player) {
 			$characters[] = create_char($player);
 		}
@@ -113,8 +113,8 @@ switch ($action) {
 			'tournamentticketpurchasestate' => 0,
 			'emailcoderequest' => false
 		];
-		die(json_encode(compact('session', 'playdata')));
 
+		die(json_encode(compact('session', 'playdata')));
 	break;
 
 	default:
