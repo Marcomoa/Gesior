@@ -119,26 +119,11 @@ $config['site']['serverPath'] = "/";
 $config['site']['encryptionType'] = 'sha1';
 $config['site']['useServerConfigCache'] = false;
 $towns_list = array(
-	1 => 'Venore',
-	2 => 'Thais',
-	3 => 'Kazordoon',
-	4 => 'Carlin',
-	5 => 'Ab\'Dendriel',
-	6 => 'Rookgaard',
-	7 => 'Liberty Bay',
-	8 => 'Port Hope',
-	9 => 'Ankrahmun',
-	10 => 'Darashia',
-	11 => 'Edron',
-	12 => 'Svargrond',
-	13 => 'Yalahar',
-	14 => 'Farmine',
-	28 => 'Gray Beach',
-	29 => 'Roshamuul',
-	33 => 'Rathleton',
-	34 => 'Krailos',
-	51 => 'Dawnport',
-	52 => 'Feyrist'
+	1 => 'Trekolt',
+	2 => 'Rhyves',
+	3 => 'Varak',
+	4 => 'Jorvik',
+	5 => 'Saund'
 );
 
 # Create Account Options
