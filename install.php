@@ -181,7 +181,7 @@ if ($page == '') {
 				echo 'File <b>config.lua</b> loaded from <font color="red"><i>' . $path . 'config.lua</i></font> and it\'s not valid TFS config.lua file. <a href="install.php?page=step&step=1">Go to STEP 1 - select other directory.</a> If it\'s your config.lua file from TFS contact with acc. maker author.';
 			}
 		} else {
-			echo 'Please write you TFS directory below. Like: <i>C:\Documents and Settings\Gesior\Desktop\TFS 0.2.9\</i><form action="install.php">
+			echo 'Please write you TFS directory below. Like: <i>C:\Documents and Settings\Gesior\Desktop\TFS 1.3\</i><form action="install.php">
 			<input type="text" name="server_path" size="90" value="' . htmlspecialchars(getServerPath()) . '" /><input type="hidden" name="page" value="step" /><input type="hidden" name="step" value="1" /><input type="submit" value="Set server path" />
 			</form>';
 		}
@@ -195,6 +195,7 @@ if ($page == '') {
 		$columns = array();
 		// Accounts:
 		$columns[] = array('accounts', 'authToken', 'VARCHAR', '100', '');
+		$columns[] = array('accounts', 'birth_date', 'VARCHAR', '50', '');
 		$columns[] = array('accounts', 'coins', 'INT', '12', '0');
 		$columns[] = array('accounts', 'create_date', 'INT', '11', '0');
 		$columns[] = array('accounts', 'create_ip', 'INT', '11', '0');
@@ -233,9 +234,9 @@ if ($page == '') {
 		$columns[] = array('players', 'hide_char', 'INT', '11', '0');
 		$columns[] = array('players', 'hide_set', 'INT', '11', NULL);
 		$columns[] = array('players', 'hide_skills', 'INT', '11', NULL);
+		$columns[] = array('players', 'loyalty_ranking', 'TINYINT', '1', '0');
 		$columns[] = array('players', 'marriage_spouse', 'INT', '11', NULL);
 		$columns[] = array('players', 'marriage_status', 'BIGINT', '20', '0');
-		$columns[] = array('players', 'name_of_column', 'TINYINT', '1', '0');
 		$columns[] = array('players', 'signature', 'VARCHAR', '255', '');
 
 		$tables = array();
