@@ -26,7 +26,7 @@ class Database_SQLite extends Database
 
 	public function fieldName($name)
 	{
-		if(strspn($name, "1234567890qwertyuiopasdfghjklzxcvbnm_") != strlen($name))
+		if(preg_match("/[^a-zA-Z0-9_]+/", $name) > 0)
 			new Error_Critic('', 'Invalid field name format.');
 
 		return '"' . $name . '"';
@@ -34,7 +34,7 @@ class Database_SQLite extends Database
 
 	public function tableName($name)
 	{
-		if(strspn($name, "1234567890qwertyuiopasdfghjklzxcvbnm_") != strlen($name))
+		if(preg_match("/[^a-zA-Z0-9_]+/", $name) > 0)
 			new Error_Critic('', 'Invalid table name format.');
 
 		return '"' . $name . '"';
