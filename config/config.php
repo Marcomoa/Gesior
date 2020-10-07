@@ -32,9 +32,7 @@ if ($is_https) {
 
 $config['base_url'] = $base_url;
 $config['site']['base_url'] = $base_url;
-
-# Put the real url for your website without www
-$config['site']['realurl'] = "";
+$config['site']['realurl'] = $base_url;
 
 # Info Bar Config
 $config['site']['info_bar_active'] = true;
