@@ -1,10 +1,10 @@
-## Gesior - AAC
+## Gesior
 
 ### Requirements:
 * [Apache](http://www.apache.org/) with [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) enabled + [PHP](http://php.net) Version 5.6 or newer
 
 ### How to install:
-* Clone the Gesior-ACC From GitHub.
+* Clone the Gesior from GitHub.
 * change the permission for write in /cache.
 
 ```bash
@@ -50,10 +50,4 @@ sudo /etc/init.d/apache2 restart
 or
 ```bash
 sudo service apache2 restart
-```
-
-### FOR UBUNTU ACCOUNTING PROBLEMS
-If you have trouble registering using ubuntu or any other version of php where the site claims to have registered but was not done, simply run the following command on your database:
-```bash
-SET GLOBAL sql_mode = '';
 ```
