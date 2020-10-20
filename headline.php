@@ -34,16 +34,3 @@ $box->draw($text); // Text to draw
 header("Content-type: image/png;");
 imagepng($im, null, 9, PNG_ALL_FILTERS);
 die();
-
-/** Just for save the original code
-if (!file_exists('images/head/' . $text . '.png')) {
-    $font = "images/martel.ttf";
-    $image = imagecreatefrompng('images/head/headline.png');
-    imagettftext($image, 18, 0, 4, 20, imagecolorallocate($image, 240, 209, 164), $font, $text);
-    imagepng($image, 'images/head/' . $text . '.png');
-}
-$img = 'images/head/' . $text . '.png';
-$pic = imagecreatefrompng($img);
-header('Content-type: image/png');
-imagepng($pic);
- * */
