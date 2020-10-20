@@ -404,11 +404,11 @@ if(!empty($name))
 				$main_content .= '<TR BGCOLOR="' . $bgcolor . '"><TD WIDTH=95%>' . $questName . '</TD>';
 				if($player->getStorage($storageID) === null)
 				{
-					$main_content .= '<TD><img src="images/false.png"/></TD></TR>';
+					$main_content .= '<TD><img src="images/quests/false.png"/></TD></TR>';
 				}
 				else
 				{
-					$main_content .= '<TD><img src="images/true.png"/></TD></TR>';
+					$main_content .= '<TD><img src="images/quests/true.png"/></TD></TR>';
 				}
 			}
 			$main_content .= '</TABLE></td></tr></table><br />';
