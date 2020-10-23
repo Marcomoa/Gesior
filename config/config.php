@@ -116,9 +116,10 @@ $config['site']['quests'] = array(
 $config['site']['private-servlist.com_server_id'] = 0;
 
 # Account Maker Config
-$config['site']['serverPath'] = "/";
-$config['site']['encryptionType'] = 'sha1';
+$config['site']['serverPath'] = "";
 $config['site']['useServerConfigCache'] = false;
+
+# PAGE: houses.php
 $towns_list = array(
 	1 => 'Trekolt',
 	2 => 'Rhyves',

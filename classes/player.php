@@ -29,7 +29,7 @@ class Player extends ObjectData
         $lv--;
         return ((50 * $lv * $lv * $lv) - (150 * $lv * $lv) + (400 * $lv)) / 3;
     }
-	
+
 	public function load($search_text, $search_by = self::LOADTYPE_ID)
 	{
 		if(in_array($search_by, self::$fields))
@@ -101,7 +101,7 @@ class Player extends ObjectData
 	{
 		$this->storages = array();
 		// load all
-		$storages = $this->getDatabaseHandler()->query('SELECT ' . $this->getDatabaseHandler()->fieldName('player_id') . ', ' . $this->getDatabaseHandler()->fieldName('key') . 
+		$storages = $this->getDatabaseHandler()->query('SELECT ' . $this->getDatabaseHandler()->fieldName('player_id') . ', ' . $this->getDatabaseHandler()->fieldName('key') .
 			', ' . $this->getDatabaseHandler()->fieldName('value') . ' FROM ' .$this->getDatabaseHandler()->tableName('player_storage') .
 			' WHERE ' . $this->getDatabaseHandler()->fieldName('player_id') . ' = ' . $this->getDatabaseHandler()->quote($this->data['id']))->fetchAll();
 		foreach($storages as $storage)
@@ -118,8 +118,8 @@ class Player extends ObjectData
 			foreach($this->storages as $key => $value)
 			{
 				//save each
-				$this->getDatabaseHandler()->query('INSERT INTO ' . $this->getDatabaseHandler()->tableName('player_storage') . ' (' . $this->getDatabaseHandler()->fieldName('player_id') . ', ' . 
-					$this->getDatabaseHandler()->fieldName('key') . ', ' . $this->getDatabaseHandler()->fieldName('value') . ', ) VALUES (' . 
+				$this->getDatabaseHandler()->query('INSERT INTO ' . $this->getDatabaseHandler()->tableName('player_storage') . ' (' . $this->getDatabaseHandler()->fieldName('player_id') . ', ' .
+					$this->getDatabaseHandler()->fieldName('key') . ', ' . $this->getDatabaseHandler()->fieldName('value') . ', ) VALUES (' .
 					$this->getDatabaseHandler()->quote($this->data['id']) . ', ' . $this->getDatabaseHandler()->quote($key) . ', ' . $this->getDatabaseHandler()->quote($value) . ')');
 			}
 		}
@@ -189,7 +189,7 @@ class Player extends ObjectData
 			new Error_Critic('', 'Player::getSkillCount() - Skill ' . htmlspecialchars($id) . ' does not exist');
 	}
 
-	public function setSkillCount($id, $count)
+	public function setSkillCount($id, $value)
 	{
 		if(isset(self::$skillNames[$id]))
 			$this->data['skill_' . self::$skillNames[$id] . '_tries'] = $value;

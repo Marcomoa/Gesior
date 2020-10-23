@@ -6,19 +6,19 @@ if($action == "") {
 
 	$guilds_list = new DatabaseList('Guild');
 	$guilds_list->addOrder(new SQL_Order(new SQL_Field('name'), SQL_Order::ASC));
-	
+
 	$main_content .= '
 		<div class="TableContainer" >
 			<table class="Table3" cellpadding="0" cellspacing="0" >
 				<div class="CaptionContainer" >
-					<div class="CaptionInnerContainer" > 
+					<div class="CaptionInnerContainer" >
 						<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 						<div class="Text" >Active Guilds on ' .htmlspecialchars($config['server']['serverName']). '</div>
 						<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 						<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 					</div>
@@ -134,7 +134,7 @@ if($action == "view")
 	$guild->loadByName($guild_name);
 	if(!$guild->isLoaded())
 		$guild_errors[] = 'Guild with name <b>'.$guild_name.'</b> doesn\'t exist.';
-	
+
 	if(!empty($guild_errors))
 	{
 		//errors
@@ -142,14 +142,14 @@ if($action == "view")
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Error</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -223,7 +223,7 @@ if($action == "view")
 						}
 			}
 		}
-		
+
 		//show guild page
 		$description = $guild->getDescription();
 		$newlines   = array("\r\n", "\n", "\r");
@@ -232,8 +232,8 @@ if($action == "view")
 			$description = $description_with_lines;
 		$guild_owner = $guild->getOwner();
 		if($guild_owner->isLoaded())
-			$guild_owner = $guild_owner->getName();		
-		
+			$guild_owner = $guild_owner->getName();
+
 		$main_content .= '
 			<TABLE BORDER=0 WIDTH=100%>
 				<TR>
@@ -252,14 +252,14 @@ if($action == "view")
 					<TD style="vertical-align:top; padding-right: 5px;"><div class="TableContainer" >
 							<table class="Table1" cellpadding="0" cellspacing="0" >
 								<div class="CaptionContainer" >
-									<div class="CaptionInnerContainer" > 
+									<div class="CaptionInnerContainer" >
 										<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>									
+										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 										<div class="Text" >Guild Information</div>
 										<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									</div>
@@ -294,14 +294,14 @@ if($action == "view")
 						<div class="TableContainer" >
 							<table class="Table1" cellpadding="0" cellspacing="0" >
 								<div class="CaptionContainer" >
-									<div class="CaptionInnerContainer" > 
+									<div class="CaptionInnerContainer" >
 										<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 										<div class="Text" >Navigation</div>
 										<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									</div>
@@ -360,14 +360,14 @@ if($action == "view")
 						<div class="TableContainer" >
 							<table class="Table1" cellpadding="0" cellspacing="0" >
 								<div class="CaptionContainer" >
-									<div class="CaptionInnerContainer" > 
+									<div class="CaptionInnerContainer" >
 										<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>										
+										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 										<div class="Text" >Administration</div>
 										<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									</div>
@@ -392,8 +392,8 @@ if($action == "view")
 																		</td>
 																	</tr>
 																</form>
-															</table>															
-															<div style="font-size:1px;height:4px;" ></div>													
+															</table>
+															<div style="font-size:1px;height:4px;" ></div>
 															<table border="0" cellspacing="0" cellpadding="0" >
 																<form action="?subtopic=guilds" method="post" >
 																	<tr>
@@ -459,7 +459,7 @@ if($action == "view")
 					$(\'#NavigationContainer\').css(\'height\', g_GuildInformationContainerHeight);
 				  }
 				}
-			  });</script> 
+			  });</script>
 			<BR>
 			<div class="TableContainer" >
 				<table class="Table3" cellpadding="0" cellspacing="0" >
@@ -470,7 +470,7 @@ if($action == "view")
 								</span>
 							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> <span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" />
 								</span>
-							
+
 							<div class="Text" >Guild Members</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" />
 								</span>
@@ -492,12 +492,12 @@ if($action == "view")
 										<div class="TableContentContainer" >
 											<table class="TableContent" width="100%" >
 												<tr class="LabelH">
-													<td>Rank <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small> 
+													<td>Rank <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small>
 													<img class="sortarrow" src="'.$layout_name.'/images/global/content/order_desc.gif" /></td>
 													<td>Name and Title</td>
-													<td>Vocation <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small> 
+													<td>Vocation <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small>
 													<img class="sortarrow" src="'.$layout_name.'/images/global/general/blank.gif" /></td>
-													<td>Level <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small> 
+													<td>Level <small style="font-weight:normal;" >[<a href="#" >sort</a>]</small>
 													<img class="sortarrow" src="'.$layout_name.'/images/global/general/blank.gif" /></td>
 													<td>Status</td>
 												</tr>';
@@ -604,7 +604,7 @@ if($action == "view")
 					<col width="140px">
 					<col width="140px">';
 				if($guild_vice)
-					$main_content .= '					
+					$main_content .= '
 						<TD>
 							<table border="0" cellspacing="0" cellpadding="0" >
 								<form action="?subtopic=guilds" method="post" >
@@ -670,14 +670,14 @@ if($action == "view")
 			<div class="TableContainer" >
 				<table class="Table3" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Invited Characters</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -723,7 +723,7 @@ if($action == "view")
 																<TD>'.date("M d Y",$getInviteDate['date']).'</TD>
 															</TR>';
 													}
-													
+
 												}
 												$main_content .= '
 													</table>
@@ -743,7 +743,7 @@ if($action == "view")
 					</tr>
 				</table>
 			</div>';
-		
+
 			$main_content .= '
 				<TABLE BORDER=0 class="fixed">
 					<col width="140px">
@@ -796,7 +796,7 @@ if($action == "view")
 			<BR>
 			<TABLE BORDER=0 WIDTH=100%>
 				<TR>
-					<TD ALIGN=center><IMG SRC="'.$layout_name.'/images/global/general/blank.gif" WIDTH=80 HEIGHT=1 BORDER=0<BR></TD>					
+					<TD ALIGN=center><IMG SRC="'.$layout_name.'/images/global/general/blank.gif" WIDTH=80 HEIGHT=1 BORDER=0<BR></TD>
 					<TD ALIGN="center">
 						<form action="?subtopic=guilds" method="post" style="padding:0px;margin:0px;" >
 							<div class="BigButton" style="background-image:url('.$layout_name.'/images/global/buttons/sbutton.gif)" >
@@ -815,10 +815,10 @@ if($action == "create") {
 	$guild_name = trim($_REQUEST['name']);
 	$leader = $_REQUEST['leader'];
 	$todo = $_REQUEST['todo'];
-	$guild_password = trim($_REQUEST['password']);	
+	$guild_password = trim($_REQUEST['password']);
 	if(!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t create guild.';
-	if(empty($guild_errors)) 
+	if(empty($guild_errors))
 	{
 		$account_players = $account_logged->getPlayers();
 		foreach($account_players as $player)
@@ -870,20 +870,20 @@ if($action == "create") {
 				$guild_errors[] = 'Wrong password, please check it and try again.';
 		}
 	}
-	
+
 	if(!empty($guild_errors)) {
 		$main_content .= '
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Error</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -936,11 +936,12 @@ if($action == "create") {
 		{
 			$new_guild = new Guild();
 			$new_guild->setCreationData(time());
+			$new_guild->setCreateIP(Visitor::getIP());
 			$new_guild->setName($guild_name);
 			$new_guild->setOwner($player);
 			$new_guild->setDescription('New guild. Leader must edit this text :)');
 			$new_guild->setGuildLogo('image/gif', Website::getFileContents('./images/guildlogos/default_logo.gif'));
-			
+
 			$new_guild->save();
 			$ranks = $new_guild->getGuildRanksList(true);
 			foreach($ranks as $rank)
@@ -953,14 +954,14 @@ if($action == "create") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Founded!</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1007,14 +1008,14 @@ if($action == "create") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Found Guild</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1170,22 +1171,22 @@ if ($action == "invite") {
 		$player_noinvite->find($player_remove_invite);
 		if($player_noinvite->isLoaded())
 			$player_noinvite_id = $player_noinvite->getId();
-		
+
 	}
-	
+
 	if(!empty($guild_errors)) {
 		$main_content .= '
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Error</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -1215,14 +1216,14 @@ if ($action == "invite") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Character Invited</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1247,14 +1248,14 @@ if ($action == "invite") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Invitation Cancelled</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1281,14 +1282,14 @@ if ($action == "invite") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Invite Character</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -1316,7 +1317,7 @@ if ($action == "invite") {
 																				<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 																			</div>
 																		</div>
-																	</td>													
+																	</td>
 																</tr>
 															</table>
 														</TD>
@@ -1339,14 +1340,14 @@ if ($action == "invite") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Cancel Invitation</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1381,7 +1382,7 @@ if ($action == "invite") {
 																					<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 																				</div>
 																			</div>
-																		</td>														
+																		</td>
 																	<tr>
 																</table>
 															</TD>
@@ -1397,7 +1398,7 @@ if ($action == "invite") {
 					</table>
 				</div>';
 		}
-		
+
 		$main_content .= '
 			<BR>
 			<TABLE BORDER=0 WIDTH=100%>
@@ -1484,14 +1485,14 @@ if($action == "leave") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Error</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -1517,18 +1518,18 @@ if($action == "leave") {
 		if($_REQUEST['leaveguild'] == 'yes') {
 			$player->setRank();
 			$player->save();
-			$main_content .= '				
+			$main_content .= '
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Left</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1573,14 +1574,14 @@ if($action == "leave") {
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>				
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Guild Members</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -1594,13 +1595,13 @@ if($action == "leave") {
 												<TD BGCOLOR=#D4C0A1>';
 												sort($array_of_player_ig);
 												foreach($array_of_player_ig as $player_to_leave)
-													$main_content .= '										
+													$main_content .= '
 														<INPUT TYPE=radio NAME="character" VALUE="'.htmlspecialchars($player_to_leave).'" '.((count($array_of_player_ig) == 1) ? 'checked' : '').'>'.htmlspecialchars($player_to_leave).'<BR>';
 											$main_content .= '</TD>';
 										} else {
 											$main_content .= '<TD BGCOLOR=#D4C0A1>Any of your characters can\'t leave guild.</TD>';
 										}
-										$main_content .= '										
+										$main_content .= '
 											</TR>
 										</table>
 									</div>
@@ -1623,7 +1624,7 @@ if($action == "leave") {
 													<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 												</div>
 											</div>
-										</td>					
+										</td>
 									<tr>
 								</form>
 							</table>
@@ -1739,14 +1740,14 @@ if($action == "join") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Error</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -1772,18 +1773,18 @@ if($action == "join") {
 	{
 		if($_REQUEST['joinguild'] == 'yes') {
 			$guild->acceptInvite($player);
-			$main_content .= '				
+			$main_content .= '
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Join</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -1828,14 +1829,14 @@ if($action == "join") {
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>				
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Join Guild</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -1849,13 +1850,13 @@ if($action == "join") {
 												<TD BGCOLOR=#D4C0A1>';
 												sort($list_of_invited_players);
 												foreach($list_of_invited_players as $invited_player_from_list)
-													$main_content .= '										
+													$main_content .= '
 														<INPUT TYPE=radio NAME="character" VALUE="'.htmlspecialchars($invited_player_from_list).'" '.((count($list_of_invited_players) == 1) ? 'checked' : '').'>'.htmlspecialchars($invited_player_from_list).'<BR>';
 											$main_content .= '</TD>';
 										} else {
 											$main_content .= '<TD BGCOLOR=#D4C0A1>Any of your characters can\'t join guild.</TD>';
 										}
-										$main_content .= '										
+										$main_content .= '
 											</TR>
 										</table>
 									</div>
@@ -1878,7 +1879,7 @@ if($action == "join") {
 													<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 												</div>
 											</div>
-										</td>					
+										</td>
 									<tr>
 								</form>
 							</table>
@@ -1941,25 +1942,25 @@ if($action == "ranks") {
 		if(!check_rank_name($new_rankname))
 			$guild_errors[] = 'Invalid rank name. Please use only a-Z, 0-9 and spaces.';
 	}
-	
+
 	if($_REQUEST['add_rank'] == "yes")
 		if(!check_rank_name($rank_name))
 			$guild_errors[] = 'Invalid rank name format.';
-			
+
 	if(!empty($guild_errors)) {
 		//errors
 		$main_content .= '
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Guild Rank Errors</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -1986,18 +1987,18 @@ if($action == "ranks") {
 			//renamed
 			$rank_rename->setName($new_rankname);
 			$rank_rename->save();
-			$main_content .= '				
+			$main_content .= '
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Rank</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -2040,19 +2041,19 @@ if($action == "ranks") {
 			$new_rank->setLevel(1);
 			$new_rank->setName($rank_name);
 			$new_rank->save();
-			
-			$main_content .= '				
+
+			$main_content .= '
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Rank</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -2096,14 +2097,14 @@ if($action == "ranks") {
 				<div class="TableContainer" >
 					<table class="Table5" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Edit Guild Ranks</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -2152,7 +2153,7 @@ if($action == "ranks") {
 																										<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 																									</div>
 																								</div>
-																							</td>																	
+																							</td>
 																						<tr>
 																					</table>
 																				</TD>
@@ -2182,14 +2183,14 @@ if($action == "ranks") {
 				<div class="TableContainer" >
 					<table class="Table5" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Add new rank</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -2212,8 +2213,8 @@ if($action == "ranks") {
 																	<TABLE BORDER=0 CELLPADDING=3>
 																		<tr>
 																			<td valign="middle">New rank name:</td>
-																			<td valign="middle">																				
-																				<input type="text" name="rank_name" size="50" value="'.$_REQUEST['rank_name'].'">																				
+																			<td valign="middle">
+																				<input type="text" name="rank_name" size="50" value="'.$_REQUEST['rank_name'].'">
 																			</td>
 																			<td valign="middle">
 																					<input type="hidden" name=action value=ranks >
@@ -2276,29 +2277,29 @@ if($action == "ranks") {
 #organize ranks
 
 if($action == "members") {
-	
+
 	#infos
 	$guild_name = (string) $_REQUEST['GuildName'];
 	$player_name = $_REQUEST['character'];
 	$new_rank = (int) $_REQUEST['newrank'];
 	$newtitle = trim($_REQUEST['newtitle']);
-	
+
 	if(!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t change rank.';
-		
+
 	if(empty($guild_errors)) {
 		$guild = new Guild();
 		$guild->loadByName($guild_name);
 		if(!$guild->isLoaded())
 			$guild_errors[] = 'Guild <b>'.$guild_name.'</b> doesn\'t exist.';
 	}
-	
+
 	if(empty($guild_errors)) {
 		if($_REQUEST['promote'] == "yes")
 			if(!isset($_REQUEST['function']) || $_REQUEST['function'] == "")
 				$guild_errors[] = 'Select an action.';
 	}
-	
+
 	if(empty($guild_errors)) {
 		$rank_list = $guild->getGuildRanksList();
 		$guild_leader = FALSE;
@@ -2322,11 +2323,11 @@ if($action == "members") {
 						}
 					}
 		}
-		
+
 		//if(!$guild_vice)
 			//$guild_errors[] = 'You are not leader or vice leader in the Guild.';
 	}
-	
+
 	if(empty($guild_errors)) {
 		foreach($rank_list as $rank)
 		{
@@ -2350,7 +2351,7 @@ if($action == "members") {
 				}
 			}
 		}
-		
+
 		if($_REQUEST['promote'] == 'yes') {
 			$player_to_change = new Player();
 			$player_to_change->find($player_name);
@@ -2358,7 +2359,7 @@ if($action == "members") {
 				$guild_errors[] = 'Player with name '.htmlspecialchars($player_name).'</b> doesn\'t exist.';
 		}
 	}
-	
+
 	if(empty($guild_errors))
 		if($_REQUEST['promote'] == 'yes') {
 			if($_REQUEST['function'] == "setrank") {
@@ -2374,24 +2375,24 @@ if($action == "members") {
 			if($_REQUEST['function'] == "exclude") {
 				if($guild->getOwner()->getName() == $player_to_change->getName())
 					$guild_errors[] = 'It\'s not exclude guild owner!';
-				
+
 			}
 		}
-	
+
 	if(!empty($guild_errors)) {
 		//errors
 		$main_content .= '
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Members Errors</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -2438,18 +2439,18 @@ if($action == "members") {
 			if($_REQUEST['function'] == "setrank") {
 				$player_to_change->setRank($rank);
 				$player_to_change->save();
-				$main_content .= '				
+				$main_content .= '
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Members</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -2516,18 +2517,18 @@ if($action == "members") {
 			if($_REQUEST['function'] == "settitle") {
 				$player_to_change->setGuildNick($newtitle);
 				$player_to_change->save();
-				$main_content .= '				
+				$main_content .= '
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Members</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -2568,18 +2569,18 @@ if($action == "members") {
 			if($_REQUEST['function'] == "exclude") {
 				$player_to_change->setRank();
 				$player_to_change->save();
-				$main_content .= '				
+				$main_content .= '
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Members</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -2625,14 +2626,14 @@ if($action == "members") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Edit Members</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -2718,7 +2719,7 @@ if($action == "members") {
 											<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 										</div>
 									</div>
-								</td>			
+								</td>
 							<tr>
 						</table>
 					</TD>
@@ -2743,9 +2744,9 @@ if($action == "members") {
 			</TABLE>';
 		}
 	}
-	
-	
-	
+
+
+
 } #members condition
 
 if($action == "disband") {
@@ -2785,14 +2786,14 @@ if($action == "disband") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Error</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -2841,14 +2842,14 @@ if($action == "disband") {
 					<div class="TableContainer" >
 						<table class="Table1" cellpadding="0" cellspacing="0" >
 							<div class="CaptionContainer" >
-								<div class="CaptionInnerContainer" > 
+								<div class="CaptionInnerContainer" >
 									<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+									<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+									<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 									<div class="Text" >Guild Disbanded</div>
 									<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+									<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 									<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								</div>
@@ -2892,14 +2893,14 @@ if($action == "disband") {
 						<div class="TableContainer" >
 							<table class="Table1" cellpadding="0" cellspacing="0" >
 								<div class="CaptionContainer" >
-									<div class="CaptionInnerContainer" > 
+									<div class="CaptionInnerContainer" >
 										<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 										<div class="Text" >Disband Guild</div>
 										<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									</div>
@@ -2938,7 +2939,7 @@ if($action == "disband") {
 													<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 												</div>
 											</div>
-										</td>					
+										</td>
 									<tr>
 								</form>
 							</table>
@@ -2991,7 +2992,7 @@ if($action == "description") {
 	}
 	if(empty($guild_errors)) {
 		$max_image_size_b = $config['site']['guild_image_size_kb'] * 1024;
-		if($_REQUEST['guildlogo'] == "yes") {			
+		if($_REQUEST['guildlogo'] == "yes") {
 			$file = $_FILES['newlogo'];
 		if(is_uploaded_file($file['tmp_name']))
 			switch($file['error']) {
@@ -3032,14 +3033,14 @@ if($action == "description") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Description Error</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -3087,14 +3088,14 @@ if($action == "description") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Logo Error</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -3145,14 +3146,14 @@ if($action == "description") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Description Changed</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -3203,14 +3204,14 @@ if($action == "description") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Logo Changed</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -3257,14 +3258,14 @@ if($action == "description") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Change Description</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -3305,14 +3306,14 @@ if($action == "description") {
 			<div class="TableContainer" >
 				<table class="Table1" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Guild Logo</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -3443,19 +3444,19 @@ if($action == "resignleadership") {
 						$guild->save();
 					}
 					$saved = TRUE;
-					
+
 					$main_content .= '
 						<div class="TableContainer" >
 							<table class="Table1" cellpadding="0" cellspacing="0" >
 								<div class="CaptionContainer" >
-									<div class="CaptionInnerContainer" > 
+									<div class="CaptionInnerContainer" >
 										<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+										<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 										<div class="Text" >New Guild Leadership</div>
 										<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+										<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 									</div>
@@ -3501,14 +3502,14 @@ if($action == "resignleadership") {
 							<div class="TableContainer" >
 								<table class="Table1" cellpadding="0" cellspacing="0" >
 									<div class="CaptionContainer" >
-										<div class="CaptionInnerContainer" > 
+										<div class="CaptionInnerContainer" >
 											<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 											<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-											<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-											<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>								
+											<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+											<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 											<div class="Text" >Resign Leadership</div>
 											<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-											<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+											<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 											<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 											<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 										</div>
@@ -3543,7 +3544,7 @@ if($action == "resignleadership") {
 																						}
 																					}
 																				}
-																				$main_content .='																					
+																				$main_content .='
 																					</SELECT>
 																				</TD>
 																			</TR>
@@ -3560,7 +3561,7 @@ if($action == "resignleadership") {
 																	<TD>Password:</TD>
 																	<TD><input type="password" name="password"></TD>
 																</TR>
-															</TABLE>													
+															</TABLE>
 														</TD>
 													</TR>
 												</table>
@@ -3584,7 +3585,7 @@ if($action == "resignleadership") {
 														<input class="ButtonText" type="image" name="Submit" alt="Submit" src="'.$layout_name.'/images/global/buttons/_sbutton_submit.gif" >
 													</div>
 												</div>
-											</td>			
+											</td>
 										<tr>
 									</table>
 								</TD>
@@ -3608,7 +3609,7 @@ if($action == "resignleadership") {
 							</TR>
 						</TABLE>';
 				}
-			} 
+			}
 			else
 				$guild_errors[] = 'You are not a leader of guild!';
 		}
@@ -3621,14 +3622,14 @@ if($action == "resignleadership") {
 				<div class="TableContainer" >
 					<table class="Table1" cellpadding="0" cellspacing="0" >
 						<div class="CaptionContainer" >
-							<div class="CaptionInnerContainer" > 
+							<div class="CaptionInnerContainer" >
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>							
+								<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+								<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 								<div class="Text" >Guild Leadership Error</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+								<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 								<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							</div>
@@ -3673,19 +3674,19 @@ if($action == "resignleadership") {
 	}
 }
 if($action == "guildwars") {
-	
+
 	# Guild wars status
 	# 1 - War Started
 	# 2 - War Rejected
 	# 3 - War Canceled
-	
-	
+
+
 	$guild_name = (string) $_REQUEST['GuildName'];
 	$guild = new Guild();
 	$guild->loadByName($guild_name);
 	if(!$guild->isLoaded())
 		$guild_errors[] = 'Guild with name <b>'.$guild_name.'</b> doesn\'t exist.';
-	
+
 	$guild_id = $guild->getID();
 	if(empty($guild_errors)) {
 		//check is it vice or/and leader account (leader has vice + leader rights)
@@ -3744,14 +3745,14 @@ if($action == "guildwars") {
 			<div class="TableContainer" >
 				<table class="Table5" cellpadding="0" cellspacing="0" >
 					<div class="CaptionContainer" >
-						<div class="CaptionInnerContainer" > 
+						<div class="CaptionInnerContainer" >
 							<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+							<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+							<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 							<div class="Text" >Declarations of War</div>
 							<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+							<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 							<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						</div>
@@ -3782,14 +3783,14 @@ if($action == "guildwars") {
 		<div class="TableContainer" >
 			<table class="Table5" cellpadding="0" cellspacing="0" >
 				<div class="CaptionContainer" >
-					<div class="CaptionInnerContainer" > 
+					<div class="CaptionInnerContainer" >
 						<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 						<div class="Text" >Guild Wars</div>
 						<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 						<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 					</div>
@@ -3817,7 +3818,7 @@ if($action == "guildwars") {
 														{
 															$warFrags[$frag['warid']][] = $frag;
 														}
-												
+
 														$count = 0;
 														foreach($SQL->query('SELECT `guild_wars`.`id`, `guild_wars`.`guild1`, `guild_wars`.`guild2`, `guild_wars`.`name1`, `guild_wars`.`name2`, `guild_wars`.`status`, `guild_wars`.`started`, `guild_wars`.`ended`, (SELECT COUNT(1) FROM `guildwar_kills` WHERE `guildwar_kills`.`warid` = `guild_wars`.`id` AND `guildwar_kills`.`killerguild` = `guild_wars`.`guild1`) guild1_kills, (SELECT COUNT(1) FROM `guildwar_kills` WHERE `guildwar_kills`.`warid` = `guild_wars`.`id` AND `guildwar_kills`.`killerguild` = `guild_wars`.`guild2`) guild2_kills FROM `guild_wars` WHERE `guild1` = ' . $guild_id . ' OR `guild2` = ' . $guild_id . ' ORDER BY CASE `status` WHEN 0 THEN 2 WHEN 1 THEN 1 WHEN 4 THEN 3 WHEN 3 THEN 4 WHEN 2 THEN 5 END, `started` DESC') as $war)
 														{
@@ -3924,14 +3925,14 @@ if($action == "guildwars") {
 		<div class="TableContainer" >
 			<table class="Table5" cellpadding="0" cellspacing="0" >
 				<div class="CaptionContainer" >
-					<div class="CaptionInnerContainer" > 
+					<div class="CaptionInnerContainer" >
 						<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
-						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
-						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>						
+						<span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
+						<span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
 						<div class="Text" >Guild War History</div>
 						<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);" /></span>
-						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span> 
+						<span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);" ></span>
 						<span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 						<span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);" /></span>
 					</div>
