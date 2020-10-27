@@ -246,8 +246,8 @@ if(!ONLY_PAGE)
 	$statustimeout = $statustimeout / 1000;
 	$config['status'] = [];
 	if (is_file('cache/serverstatus.txt')) {
-        $config['status'] = parse_ini_file('cache/serverstatus.txt');
-    }
+		$config['status'] = parse_ini_file('cache/serverstatus.txt');
+	}
 	if($config['status']['serverStatus_lastCheck']+$statustimeout < time())
 	{
 		$config['status']['serverStatus_checkInterval'] = $statustimeout+3;
