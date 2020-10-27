@@ -48,12 +48,7 @@ $title = ucwords($subtopic) . ' - ' . Website::getServerConfig()->getValue('serv
 
 $topic = $subtopic;
 
-$passwordency = Website::getServerConfig()->getValue('passwordType');
-if (empty($passwordency)) {
-	$passwordency = 'sha1';
-} else if ($passwordency == 'plain') {
-	$passwordency = '';
-}
+$passwordency = 'sha1';
 
 $news_content = '';
 $vocation_name = array();
@@ -222,7 +217,7 @@ function getReason($reasonId)
 
 //################### DISPLAY FUNCTIONS #####################
 //return shorter text (news ticker)
-function short_text($text, $chars_limit) 
+function short_text($text, $chars_limit)
 {
 	if(strlen($text) > $chars_limit)
 		return substr($text, 0, strrpos(substr($text, 0, $chars_limit), " ")).'...';
@@ -249,7 +244,10 @@ if(!ONLY_PAGE)
 		if($status_var > 0)
 			$statustimeout = $statustimeout * $status_var;
 	$statustimeout = $statustimeout / 1000;
-	$config['status'] = parse_ini_file('cache/DONT_EDIT_serverstatus.txt');
+	$config['status'] = [];
+	if (is_file('cache/serverstatus.txt')) {
+		$config['status'] = parse_ini_file('cache/serverstatus.txt');
+	}
 	if($config['status']['serverStatus_lastCheck']+$statustimeout < time())
 	{
 		$config['status']['serverStatus_checkInterval'] = $statustimeout+3;
@@ -271,7 +269,7 @@ if(!ONLY_PAGE)
 			$config['status']['serverStatus_players'] = 0;
 			$config['status']['serverStatus_playersMax'] = 0;
 		}
-		$file = fopen("cache/DONT_EDIT_serverstatus.txt", "w");
+		$file = fopen("cache/serverstatus.txt", "w");
 		$file_data = '';
 		foreach($config['status'] as $param => $data)
 		{
@@ -283,23 +281,23 @@ if(!ONLY_PAGE)
 		fclose($file);
 	}
 	//PAGE VIEWS COUNTER
-	$views_counter = "cache/DONT_EDIT_usercounter.txt";
+	$views_counter = "cache/usercounter.txt";
 	// checking if the file exists
 	if (file_exists($views_counter))
 	{
-		$actie = fopen($views_counter, "r+"); 
-		$page_views = fgets($actie, 9); 
-		$page_views++; 
-		rewind($actie); 
-		fputs($actie, $page_views, 9); 
-		fclose($actie); 
+		$actie = fopen($views_counter, "r+");
+		$page_views = fgets($actie, 9);
+		$page_views++;
+		rewind($actie);
+		fputs($actie, $page_views, 9);
+		fclose($actie);
 	}
 	else
-	{ 
+	{
 		// the file doesn't exist, creating a new one with value 1
-		$actie = fopen($views_counter, "w"); 
-		$page_views = 1; 
-		fputs($actie, $page_views, 9); 
-		fclose($actie); 
+		$actie = fopen($views_counter, "w");
+		$page_views = 1;
+		fputs($actie, $page_views, 9);
+		fclose($actie);
 	}
 }
