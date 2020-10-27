@@ -500,7 +500,7 @@ if ($page == '') {
 			$account->setPassword(1);
 			$account->setMail(rand(0, 999999) . '@gmail.com');
 			$account->setPageAccess(3);
-			$account->setFlag('unknown');
+			$account->setFlag('pl');
 			$account->setCreateIP(Visitor::getIP());
 			$account->setCreateDate(time());
 			$account->save();
